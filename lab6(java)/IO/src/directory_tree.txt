@@ -1,0 +1,19 @@
+|-----OS_Lab1
+	|-----af
+	DxDiag.txt
+	name.bat
+	OC_Лабораторная_работа_01_CmdWindows.docx
+	z03-01.bat
+	z03-02.bat
+	z03-03.bat
+	z03-04.bat
+	z03-05.bat
+	z03-06.bat
+	~$ОСИ 1.docx
+	Книга1.xlsx
+	ОСИ 1.docx
+|-----OS_Lab2
+	|-----fad
+	OC_Лабораторная_работа_02_BashLinux.docx
+	ОСИ 2 ВОПРОСЫ.docx
+	ОСИ 2.docx

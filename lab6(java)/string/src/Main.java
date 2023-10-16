@@ -42,15 +42,12 @@ public class Main {
                 uniqueWords.add(word);
             }
 
-            // Если количество уникальных слов в текущем предложении больше или равно максимальному,
-            // обновляем максимальное количество и множество общих слов
             if (uniqueWords.size() >= maxSentenceCount) {
                 maxSentenceCount = uniqueWords.size();
                 maxCommonWords = uniqueWords;
             }
         }
 
-        // Выводим результат
         System.out.println("Наибольшее количество предложений с одинаковыми словами: " + maxSentenceCount);
         System.out.println("Общие слова в предложениях: " + maxCommonWords);
     }
@@ -66,31 +63,28 @@ public class Main {
     }
 
     public static void Task3(String text) {
-        // Разделим текст на предложения
         String[] sentences = text.split("\\.");
 
-
-        // Разделим первое предложение на слова
+        // делим первое предложение на слова
         String[] firstSentenceWords = sentences[0].trim().split("\\s+");
 
-        // Создадим множество для уникальных слов
+        // cоздаю множество для уникальных слов
         Set<String> uniqueWords = new HashSet<>();
 
-        // Добавим все слова из первого предложения в множество
+        // добавляю все слова из первого предложения в множество
         Collections.addAll(uniqueWords, firstSentenceWords);
 
-        // Переберем остальные предложения
+        // перебераю остальные предложения
         for (int i = 1; i < sentences.length; i++) {
             String[] sentenceWords = sentences[i].trim().split("\\s+");
             for (String word : sentenceWords) {
-                // Если слово есть в множестве, удалим его
+                // если слово есть в множестве, удалим его
                 if (uniqueWords.contains(word)) {
                     uniqueWords.remove(word);
                 }
             }
         }
 
-        // Выведем первое слово, которое не встречается в остальных предложениях
         if (!uniqueWords.isEmpty()) {
             System.out.println("Слово, которого нет ни в одном из остальных предложений: " + uniqueWords.iterator().next());
         } else {
@@ -99,17 +93,17 @@ public class Main {
     }
 
     public static void Task4(String text, int length) {
-        // Создаем регулярное выражение для поиска вопросительных предложений
+        // создаю регулярное выражение для поиска вопроса
         Pattern pattern = Pattern.compile("[А-ЯA-Z][^.!?]*\\?");
 
-        // Создаем объект Matcher для поиска в тексте
+        // создаею объект Matcher для поиска
         Matcher matcher = pattern.matcher(text);
 
         while (matcher.find()) {
-            // Извлекаем найденное вопросительное предложение
+            // извлекаю найденное вопросительное предложение
             String questionSentence = matcher.group().trim();
 
-            // Разбиваем предложение на слова и ищем слова заданной длины
+            // разбиваю предложение на слова и ищю слова заданной длины
             String[] words = questionSentence.split("\\s+");
             Set<String> uniqueWords = new HashSet<>();
 
@@ -120,13 +114,12 @@ public class Main {
                 }
             }
 
-            // Выводим уникальные слова заданной длины без повторений
+            // вывожу уникальные слова нужной длины без повторений
             System.out.println("Слова заданной длины " + length + " в вопросительном предложении: " + uniqueWords);
         }
     }
 
     public static void Task5(String text) {
-        // Разделяем текст на предложения
         String[] sentences = text.split("[.!?]");
 
         for (int i = 0; i < sentences.length; i++) {
@@ -134,23 +127,22 @@ public class Main {
             String[] words = sentence.split("\\s+");
 
             if (words.length >= 2) {
-                // Заменяем местами первое и последнее слово
+                // меняю местами первое и последнее слово
                 String firstWord = words[0];
                 words[0] = words[words.length - 1];
                 words[words.length - 1] = firstWord;
 
-                // Собираем предложение обратно
+                // собираю предложение обратно
                 StringBuilder newSentence = new StringBuilder();
                 for (String word : words) {
                     newSentence.append(word).append(" ");
                 }
 
-                // Заменяем исходное предложение на новое в тексте
+                // меняю исходное предложение на новое в тексте
                 sentences[i] = newSentence.toString().trim();
             }
         }
 
-        // Выводим результат
         for (String sentence : sentences) {
             System.out.println(sentence);
         }
