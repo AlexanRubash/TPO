@@ -6,7 +6,6 @@ public class Main {
         Port port = new Port();
         ExecutorService executor = Executors.newFixedThreadPool(3); // 3 причала
 
-        // Создание и запуск кораблей
         Ship ship1 = new Ship("Корабль 1", 70, 30, 40, port);
         Ship ship2 = new Ship("Корабль 2", 90, 40, 20, port);
         Ship ship3 = new Ship("Корабль 3", 80, 35, 45, port);
@@ -17,7 +16,6 @@ public class Main {
 
         executor.shutdown();
 
-        // Ожидание завершения всех кораблей
         while (!executor.isTerminated()) {
             Thread.yield();
         }
